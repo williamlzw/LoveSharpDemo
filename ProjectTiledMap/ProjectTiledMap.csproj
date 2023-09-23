@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Love.Awesome\Love.Awesome.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LoveSharp">
+      <HintPath>..\package\LoveSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="xcopy $(ProjectDir)res $(TargetDir)/e /i /y" />
+  </Target>
+
+</Project>
